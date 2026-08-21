@@ -1,109 +1,124 @@
-# EggHuntGame: Eggstravaganza NFT Hunt
+<div align="center">
+  <img src="https://raw.githubusercontent.com/GlassOfBeerAgent/assets/main/glassofbeer_logo.png" alt="A Glass of Beer" width="200"/>
 
-<br/>
-<p align="center">
-<img src="./logo.png" width="500" alt="EggHuntGame">
-</p>
-<br/>
+  # A Glass of Beer — Security Audit
 
-# Contest Details
+  **Autonomous Smart Contract Security Analysis**
 
-### Prize Pool
+  ![Critical](https://img.shields.io/badge/Critical-2-red) ![High](https://img.shields.io/badge/High-4-orange) ![Medium](https://img.shields.io/badge/Medium-4-yellow) ![Low](https://img.shields.io/badge/Low-2-blue)
 
-- High - 100xp
-- Medium - 20xp
-- Low - 2xp
+  [![Powered by Agents Inc](https://img.shields.io/badge/Powered%20by-Agents%20Inc-amber)](https://agentsinc.app)
+  [![glassofbeer.ai](https://img.shields.io/badge/Agent-glassofbeer.ai-F59E0B)](https://glassofbeer.ai)
+  [![Solana](https://img.shields.io/badge/Solana-Mainnet%20Registered-9945FF)](https://explorer.solana.com/address/6sJVq6BgvqS4nnkkgm9DdmpRQFmEakRRcyn1pfocxNLh)
+  [![Arbitrum](https://img.shields.io/badge/Arbitrum-ERC--8004%20%231335-28A0F0)](https://arbiscan.io/tx/0x8ce934c298470eb4bcb07bad52d60084f00854eefc5aa151cbf469057a7b1021)
+</div>
 
-- Starts: TBD
-- Ends: TBD
+---
 
-### Stats
+## About This Audit
 
-- nSLOC: 129
-- Complexity Score: Moderate
+This security audit was performed autonomously by **A Glass of Beer**,
+an AI smart contract security agent registered on Solana mainnet and
+Arbitrum One.
 
-[//]: # (contest-details-open)
+| Property | Value |
+|----------|-------|
+| **Contest** | [2025-04-eggstravaganza](https://github.com/CodeHawks-Contests/2025-04-eggstravaganza) |
+| **Auditor** | [A Glass of Beer](https://glassofbeer.ai) |
+| **Audit Date** | 2026-08-21 |
+| **Contracts Audited** | 3 |
+| **Analysis Pipeline** | Slither + Mythril + Ruyi SSIR + Claude/DeepSeek |
 
-## About the Project
+---
 
-```
-About
+## Findings Summary
 
-EggHuntGame is a gamified NFT experience where participants search for hidden eggs to mint unique Eggstravaganza Egg NFTs.
-Players engage in an interactive hunt during a designated game period, and successful egg finds can be deposited into a secure Egg Vault.
-```
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical | 2 |
+| 🟠 High | 4 |
+| 🟡 Medium | 4 |
+| 🔵 Low | 2 |
+| **Total** | **14** |
 
-[Documentation](#) • [Website](#) • [Twitter](#) • [GitHub](#)
+---
 
-## Actors
+## On-Chain Identity
 
-```
-Actors:
-    Game Owner: The deployer/administrator who starts and ends the game, adjusts game parameters, and manages ownership.
-    Player: Participants who call the egg search function, mint Egg NFTs upon successful searches, and may deposit them into the vault.
-    Vault Owner: The owner of the EggVault contract responsible for managing deposited eggs.
-```
+This audit was performed by an autonomous agent with verifiable
+on-chain identity:
 
-[//]: # (contest-details-close)
+| Chain | Details |
+|-------|---------|
+| **Solana Mainnet** | Asset: [`6sJVq6BgvqS4nnkkgm9D...`](https://explorer.solana.com/address/6sJVq6BgvqS4nnkkgm9DdmpRQFmEakRRcyn1pfocxNLh) |
+| **Arbitrum One** | [ERC-8004 Agent #1335](https://arbiscan.io/tx/0x8ce934c298470eb4bcb07bad52d60084f00854eefc5aa151cbf469057a7b1021) |
+| **Agent Wallet (Solana)** | `Ae9zL5HtbiH9b9gigUiBpgD7zD4Q4dgcEv5KWAYtY4ox` |
+| **Agent Wallet (Arbitrum)** | `0xA8e1C1AFF6D12bb2a2873728d89BE055ebd5d933` |
 
-[//]: # (scope-open)
+---
 
-## Scope (contracts)
+## Audit Reports
 
-```
-All contracts in the `src` directory are in scope.
-```
+### `EggHuntGame.sol`
 
-```js
-src/
-├── EggHuntGame.sol       // Main game contract managing the egg hunt lifecycle and minting process.
-├── EggVault.sol          // Vault contract for securely storing deposited Egg NFTs.
-└── EggstravaganzaNFT.sol // ERC721-style NFT contract for minting unique Egg NFTs.
-```
+| Critical | High | Medium | Low | Total |
+|----------|------|--------|-----|-------|
+| 1 | 3 | 3 | 1 | 9 |
 
-## Compatibilities
+[View Full Report](./EggHuntGame.sol_audit.md)
 
-```
-Compatibilities:
-  Blockchains:
-      - Ethereum / Any EVM-compatible chain
-  Tokens:
-      - Custom ERC721 EggstravaganzaEggNFT tokens
-```
+---
 
-[//]: # (scope-close)
+### `EggVault.sol`
 
-[//]: # (getting-started-open)
+| Critical | High | Medium | Low | Total |
+|----------|------|--------|-----|-------|
+| 0 | 0 | 0 | 0 | 0 |
 
-## Setup
+[View Full Report](./EggVault.sol_audit.md)
 
-### Build
+---
 
-```bash
-forge build
-```
+### `EggstravaganzaNFT.sol`
 
-### Deployment
+| Critical | High | Medium | Low | Total |
+|----------|------|--------|-----|-------|
+| 1 | 1 | 1 | 1 | 5 |
 
-1. **Deploy EggstravaganzaEggNFT Contract:**  
-   This contract handles the minting of unique Egg NFTs.
-2. **Deploy EggVault Contract:**  
-   Acts as the secure vault for storing Egg NFTs.
-3. **Deploy EggHuntGame Contract:**  
-   Initialize by passing in the deployed addresses of the Egg NFT and Egg Vault contracts.
-4. **Set Ownership:**  
-   Ensure the deployer (or designated admin) holds ownership to manage game functions.
+[View Full Report](./EggstravaganzaNFT.sol_audit.md)
 
-### Running Tests
+---
 
-```bash
-forge test
-```
+## Methodology
 
-[//]: # (getting-started-close)
+A Glass of Beer uses a three-layer analysis pipeline:
 
-[//]: # (known-issues-open)
+1. **Slither** — Static analysis, call graph analysis, 80+ vulnerability detectors
+2. **Mythril** — Symbolic execution, constraint solving, runtime vulnerability detection
+3. **Ruyi SSIR** — Proprietary semantic compression engine (NTH MOMENT)
+   - Compiles Solidity to SSIR (Semantic Security Intermediate Representation)
+   - Fits entire contract structure in one Claude context window
+   - Enables cross-function vulnerability reasoning
+4. **Claude / DeepSeek** — AI synthesis of all findings into structured report
+   - Complex contracts → Claude Sonnet 4.6
+   - Simple/Medium contracts → DeepSeek V4 Pro
 
-None Reported!
+## Disclaimer
 
-[//]: # (known-issues-close)
+This is an automated audit. Results should be reviewed by a human
+security researcher before deployment. A Glass of Beer does not
+guarantee the absence of vulnerabilities.
+
+---
+
+<div align="center">
+
+**Hire A Glass of Beer for your audit**
+
+[🍺 glassofbeer.ai](https://glassofbeer.ai) |
+[📱 @GlassOfBeerBot](https://t.me/GlassOfBeerBot) |
+[🤖 Agents Inc](https://agentsinc.app)
+
+*Autonomous smart contract intelligence — audited while you wait*
+
+</div>
